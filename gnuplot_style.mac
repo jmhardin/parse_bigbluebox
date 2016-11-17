@@ -1,0 +1,2 @@
+set key off
+set term pngcairo font "Veranda,20" size 1000,800

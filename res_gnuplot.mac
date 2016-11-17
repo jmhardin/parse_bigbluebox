@@ -1,0 +1,72 @@
+
+load "gnuplot_style.mac"
+
+set xlabel "Wavelength (nm)"
+set ylabel "Reflectance"
+
+set xrange [300:600]
+set yrange [0:1.1]
+
+pref='ofolder'
+globallw='2'
+
+set key on
+set key c 
+set key r 
+
+do for [angle=30:75:15]{
+	set terminal pdf
+	set output 'fsmglass_'.angle.'deg.pdf'
+	plot pref.'/mirror1_'.angle.'deg_refl.csv' u 1:2 title '1' with lines lw globallw,\
+		pref.'/mirror2_'.angle.'deg_refl.csv' u 1:2 title '2' with lines lw globallw,\
+		pref.'/mirror3_'.angle.'deg_refl.csv' u 1:2 title '3' with lines lw globallw,\
+		pref.'/mirror4_'.angle.'deg_refl.csv' u 1:2 title '4' with lines lw globallw,\
+		pref.'/mirror5_'.angle.'deg_refl.csv' u 1:2 title '5' with lines lw globallw,\
+		pref.'/mirror6_'.angle.'deg_refl.csv' u 1:2 title '6' with lines lw globallw
+	unset output
+
+	set terminal pdf
+	set output 'coatings_'.angle.'deg.pdf'
+	plot pref.'/mirror1_'.angle.'deg_refl.csv' u 1:2 title '1' with lines lw globallw,\
+		pref.'/mirror2_'.angle.'deg_refl.csv' u 1:2 title '2' with lines lw globallw,\
+		pref.'/eci_'.angle.'deg_refl.csv' u 1:2 title 'ECI' with lines lw globallw,\
+		pref.'/thor_'.angle.'deg_refl.csv' u 1:2 title 'Thor' with lines lw globallw
+	unset output
+	set terminal png size 1000,800
+	set output 'fsmglass_'.angle.'deg.png'
+	plot pref.'/mirror1_'.angle.'deg_refl.csv' u 1:2 title '1' with lines lw globallw,\
+		pref.'/mirror2_'.angle.'deg_refl.csv' u 1:2 title '2' with lines lw globallw,\
+		pref.'/mirror3_'.angle.'deg_refl.csv' u 1:2 title '3' with lines lw globallw,\
+		pref.'/mirror4_'.angle.'deg_refl.csv' u 1:2 title '4' with lines lw globallw,\
+		pref.'/mirror5_'.angle.'deg_refl.csv' u 1:2 title '5' with lines lw globallw,\
+		pref.'/mirror6_'.angle.'deg_refl.csv' u 1:2 title '6' with lines lw globallw
+	unset output
+
+	set terminal png size 1000,800
+	set output 'coatings_'.angle.'deg.png'
+	plot pref.'/mirror1_'.angle.'deg_refl.csv' u 1:2 title '1' with lines lw globallw,\
+		pref.'/mirror2_'.angle.'deg_refl.csv' u 1:2 title '2' with lines lw globallw,\
+		pref.'/eci_'.angle.'deg_refl.csv' u 1:2 title 'ECI' with lines lw globallw,\
+		pref.'/thor_'.angle.'deg_refl.csv' u 1:2 title 'Thor' with lines lw globallw
+	unset output
+}
+set xlabel "Angle (deg)"
+set ylabel "Reflectance"
+
+set xrange [25:80]
+set yrange [.8:1.1]
+
+set terminal pdf
+set output 'Integrated_by_angle.pdf'
+plot pref.'/mirror1_integrated_refl.csv' u 1:2 title '1' with lines lw globallw,\
+	pref.'/mirror2_integrated_refl.csv' u 1:2 title '2' with lines lw globallw,\
+	pref.'/eci_integrated_refl.csv' u 1:2 title 'ECI' with lines lw globallw,\
+	pref.'/thor_integrated_refl.csv' u 1:2 title 'Thor' with lines lw globallw
+unset output
+set terminal png size 1000,800
+set output 'Integrated_by_angle.png'
+plot pref.'/mirror1_integrated_refl.csv' u 1:2 title '1' with lines lw globallw,\
+	pref.'/mirror2_integrated_refl.csv' u 1:2 title '2' with lines lw globallw,\
+	pref.'/eci_integrated_refl.csv' u 1:2 title 'ECI' with lines lw globallw,\
+	pref.'/thor_integrated_refl.csv' u 1:2 title 'Thor' with lines lw globallw
+unset output
