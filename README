@@ -1,3 +1,3 @@
 Intended to interpret output from the big blue box at the JLab ARC.
 Run without options for usage.
-Missing quite a few comman line options and features (primarily - dark current is hard coded and not inferred could be modelled instead)
+Missing quite a few command line options and features (primarily - dark current is hard coded and not inferred could be modelled instead)
