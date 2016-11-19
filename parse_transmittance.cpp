@@ -19,6 +19,7 @@ int main(int nvars, char** vars)
 	if (nvars == 1)
 	{
 		printf("use -h for usage\n");
+		return -1;
 	}
 	for (int i = 1; i < nvars; i++)
 	{
