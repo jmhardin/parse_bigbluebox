@@ -42,8 +42,9 @@ int main(int nvars, char** vars)
 		{
 			printf("Usage: parse_transmittance -ifile <data_file>\n");
 			printf("Outputs a 2 column list of wavelengths and reflectances.  Expects the files to have 3 columns - wavelength, reference, signal.\n");
-			printf("Usage: parse_reflectance -integrate -ifile <data_file>\n");
-			printf("Returns a single number corresponding to the average reflectance weighted by the Cernkov spectrum and PMT QE\n");
+			printf("-dark_current <nA>\n     Sets the dark current\n");
+			printf("-integrate -ifile <data_file>\n");
+			printf("     Returns a single number corresponding to the average reflectance weighted by the Cernkov spectrum and PMT QE\n");
 			printf("ending....\n");
 			return -1;
 		}
