@@ -16,6 +16,10 @@ int main(int nvars, char** vars)
 	double min_wavelength = 314;
 	bool return_integral = false;
 	int open_file_ind = 2;
+	if (nvars == 1)
+	{
+		printf("use -h for usage\n");
+	}
 	for (int i = 1; i < nvars; i++)
 	{
 		if (strcmp(vars[i],"-integrate") == 0)
@@ -35,9 +39,9 @@ int main(int nvars, char** vars)
 		}
 		else
 		{
-			printf("Usage: parse_transmittance <data_file>\n");
+			printf("Usage: parse_transmittance -ifile <data_file>\n");
 			printf("Outputs a 2 column list of wavelengths and reflectances.  Expects the files to have 3 columns - wavelength, reference, signal.\n");
-			printf("Usage: parse_reflectance -integrate <data_file>\n");
+			printf("Usage: parse_reflectance -integrate -ifile <data_file>\n");
 			printf("Returns a single number corresponding to the average reflectance weighted by the Cernkov spectrum and PMT QE\n");
 			printf("ending....\n");
 			return -1;
