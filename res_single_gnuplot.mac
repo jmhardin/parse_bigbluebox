@@ -1,0 +1,21 @@
+
+load "gnuplot_style.mac"
+
+set xlabel "Wavelength (nm)"
+set ylabel "Reflectance"
+
+set xrange [300:600]
+set yrange [0:1.1]
+
+pref='ofolder'
+globallw='2'
+
+set key on
+set key c 
+set key r 
+
+set terminal pdf
+set output 'single_transmittance.pdf'
+plot pref.'input_transmittance.csv' u 1:2 title '1' with lines lw globallw
+unset output
+
