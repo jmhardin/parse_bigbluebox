@@ -1,0 +1,35 @@
+
+load "gnuplot_style.mac"
+
+set xlabel "Wavelength [nm]"
+set ylabel "Transmittance"
+
+set xrange [300:649]
+set yrange [0.65:0.95]
+
+globallw='2'
+
+set key on
+set key b #c 
+set key r 
+set title 'TSE3032 cookies 2 mm thick'
+
+set pointsize 0.5
+
+set style fill transparent solid 0.2 noborder
+
+set terminal pdf
+set output 'TSEcookies_2mm.pdf'
+set grid
+plot 'cookie3_0.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 1 pt 7 ps 0.1 lw 1 title 'two quartz, oil inbetween', \
+     'cookie7_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 3 pt 7 ps 0.1 lw 1 title 'cookie 7, 2 mm', \
+     'cookie13_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 4 pt 7 ps 0.1 lw 1 title 'cookie 13, 2 mm', \
+     'cookie14_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 5 pt 7 ps 0.1 lw 1 title 'cookie 14, 2 mm', \
+     'cookie16_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 6 pt 7 ps 0.1 lw 1 title 'cookie 16, 2 mm'
+unset output
+

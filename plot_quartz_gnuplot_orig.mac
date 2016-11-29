@@ -1,0 +1,34 @@
+
+load "gnuplot_style.mac"
+
+set xlabel "Wavelength [nm]"
+set ylabel "Transmittance"
+
+set xrange [300:649]
+set yrange [0.65:0.95]
+
+globallw='2'
+
+set key on
+set key b #c 
+set key r 
+set title 'Quartz windows'
+
+set pointsize 0.5
+
+set style fill transparent solid 0.2 noborder
+
+set terminal pdf
+set output 'quartz_win.pdf'
+set grid
+plot 'cookie0_0.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 1 pt 7 ps 0.25 lw 1 title 'one quartz', \
+     'cookie3_0.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 2 pt 7 ps 0.25 lw 1 title 'two quartz, oil inbetween', \
+     'cookie2_0.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 3 pt 7 ps 0.25 lw 1 title 'two quartz, air inbetween', \
+     'cookie1_0.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 4 pt 7 ps 0.25 lw 1 title 'two quartz, direct coupling'
+
+unset output
+

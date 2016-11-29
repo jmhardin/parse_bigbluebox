@@ -1,0 +1,57 @@
+
+load "gnuplot_style.mac"
+
+set xlabel "Wavelength [nm]"
+set ylabel "Transmittance"
+
+set xrange [300:649]
+set yrange [0.9:1.05]
+
+globallw='2'
+
+set key on
+set key b #c 
+set key r 
+set title 'Relative to two quartz windows with oil inbetween'
+
+set pointsize 0.5
+
+set style fill transparent solid 0.2 noborder
+set linetype 20 lc rgb "black" pt 7 ps 0.01 lw 1
+
+mymax = 1
+
+set terminal pdf
+set output 'TSEcookies_3_2.pdf'
+set grid
+plot 'cookie16_2_rel3.txt' using 1:($2/$4)-($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))):($2/$4)+($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with filledcurves lt 1 notitle, \
+     '' using 1:($2/$4):($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with lp lt 1 pt 7 ps 0.1 lw 1 title 'TSE 100:3.2 40C 2 mm', \
+     'cookie16_2_rel3.txt' using 1:(mymax) with lp lt 20 notitle, \
+     'cookie13_2_rel3.txt' using 1:($2/$4)-($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))):($2/$4)+($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with filledcurves lt 2 notitle, \
+     '' using 1:($2/$4):($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with lp lt 2 pt 7 ps 0.1 lw 1 title 'TSE 100:3.2 150C 2 mm', \
+     'cookie14_2_rel3.txt' using 1:($2/$4)-($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))):($2/$4)+($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with filledcurves lt 3 notitle, \
+     '' using 1:($2/$4):($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with lp lt 3 pt 7 ps 0.1 lw 1 title 'TSE 100:3.2 100C 2 mm', \
+     'cookie14_1_rel3.txt' using 1:($2/$4)-($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))):($2/$4)+($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with filledcurves lt 6 notitle, \
+     '' using 1:($2/$4):($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with lp lt 6 pt 7 ps 0.1 lw 1 title 'TSE 100:3.2 100C 1 mm', \
+     'cookie16_1_rel3.txt' using 1:($2/$4)-($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))):($2/$4)+($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with filledcurves lt 4 notitle, \
+     '' using 1:($2/$4):($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with lp lt 4 pt 7 ps 0.1 lw 1 title 'TSE 100:3.2 40C 1 mm', \
+     'cookie13_1_rel3.txt' using 1:($2/$4)-($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))):($2/$4)+($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with filledcurves lt 5 notitle, \
+     '' using 1:($2/$4):($2/$4)*(sqrt(($3/$2)*($3/$2)+($5/$4)*($5/$4))) with lp lt 5 pt 7 ps 0.1 lw 1 title 'TSE 100:3.2 150C 1 mm'
+#     'cookie6_1.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+#     '' using 1:2 with lp lt 2 pt 7 ps 0.1 lw 1 title 'cookie 6, 1 mm', \
+#     'cookie7_1.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+#     '' using 1:2 with lp lt 4 pt 7 ps 0.1 lw 1 title 'cookie 7, 1 mm', \
+#     'cookie8_1.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+#     '' using 1:2 with lp lt 5 pt 7 ps 0.1 lw 1 title 'cookie 8, 1 mm', \
+#     'cookie9_1.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+#     '' using 1:2 with lp lt 6 pt 7 ps 0.1 lw 1 title 'cookie 9, 1 mm', \
+#     'cookie10_1.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+#     '' using 1:2 with lp lt 7 pt 7 ps 0.1 lw 1 title 'cookie 10, 1 mm', \
+#     'cookie13_1.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+#     '' using 1:2 with lp lt 8 pt 7 ps 0.1 lw 1 title 'cookie 13, 1 mm', \
+#     'cookie14_1.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+#     '' using 1:2 with lp lt 3 pt 7 ps 0.1 lw 1 title 'cookie 14, 1 mm', \
+#     'cookie16_1.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+#     '' using 1:2 with lp lt 9 pt 7 ps 0.1 lw 1 title 'cookie 16, 1 mm'
+unset output
+

@@ -1,0 +1,119 @@
+
+load "gnuplot_style.mac"
+
+set xlabel "Wavelength [nm]"
+set ylabel "Transmittance"
+
+set xrange [300:649]
+set yrange [0.7:0.95]
+
+globallw='2'
+
+set key on
+set key b #c 
+set key r 
+#set title 'Angle dependence'
+
+set style fill transparent solid 0.2 noborder
+
+set pointsize 0.5
+
+set terminal pdf
+set output 'quartz_angle.pdf'
+set title 'Angle dependence for a single quartz piece'
+set grid
+plot '../dc762/ANGLE_transmittance_onequartz_00.txt' using 1:2 with lp lt 1 pt 7 ps 0.2 lw 1 title 'angle = 0 deg', \
+     '../dc762/ANGLE_transmittance_onequartz_05.txt' using 1:2 with lp lt 2 pt 7 ps 0.2 lw 1 title 'angle = 5 deg', \
+     '../dc762/ANGLE_transmittance_onequartz_10.txt' using 1:2 with lp lt 3 pt 7 ps 0.2 lw 1 title 'angle = 10 deg', \
+     '../dc762/ANGLE_transmittance_onequartz_20.txt' using 1:2 with lp lt 4 pt 7 ps 0.2 lw 1 title 'angle = 20 deg', \
+     '../dc762/ANGLE_transmittance_onequartz_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
+     '../dc762/ANGLE_transmittance_onequartz_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
+     'cookie0_0.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'one quartz from Saturday'
+unset title
+unset output
+
+
+set output 'cookier_angle.pdf'
+set title 'Angle dependence for the new Eljen cookie 2 mm thickness'
+set grid
+plot '../dc762/ANGLE_transmittance_cookier_2_00.txt' using 1:2 with lp lt 1 pt 7 ps 0.2 lw 1 title 'angle = 0 deg', \
+     '../dc762/ANGLE_transmittance_cookier_2_05.txt' using 1:2 with lp lt 2 pt 7 ps 0.2 lw 1 title 'angle = 5 deg', \
+     '../dc762/ANGLE_transmittance_cookier_2_10.txt' using 1:2 with lp lt 3 pt 7 ps 0.2 lw 1 title 'angle = 10 deg', \
+     '../dc762/ANGLE_transmittance_cookier_2_20.txt' using 1:2 with lp lt 4 pt 7 ps 0.2 lw 1 title 'angle = 20 deg', \
+     '../dc762/ANGLE_transmittance_cookier_2_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
+     '../dc762/ANGLE_transmittance_cookier_2_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
+     'cookie4_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookier from Saturday'
+unset title
+unset output
+
+set output 'cookief_angle.pdf'
+set title 'Angle dependence for the FCAL cookie'
+set grid
+plot '../dc762/ANGLE_transmittance_cookief_00.txt' using 1:2 with lp lt 1 pt 7 ps 0.2 lw 1 title 'angle = 0 deg', \
+     '../dc762/ANGLE_transmittance_cookief_05.txt' using 1:2 with lp lt 2 pt 7 ps 0.2 lw 1 title 'angle = 5 deg', \
+     '../dc762/ANGLE_transmittance_cookief_10.txt' using 1:2 with lp lt 3 pt 7 ps 0.2 lw 1 title 'angle = 10 deg', \
+     '../dc762/ANGLE_transmittance_cookief_20.txt' using 1:2 with lp lt 4 pt 7 ps 0.2 lw 1 title 'angle = 20 deg', \
+     '../dc762/ANGLE_transmittance_cookief_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
+     '../dc762/ANGLE_transmittance_cookief_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
+     'cookie11.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookief from Saturday'
+unset title
+unset output
+
+set output 'cookie6_angle.pdf'
+set title 'Angle dependence for cookie: RTV 100:2.5 100C 2 mm'
+set grid
+plot '../dc762/ANGLE_transmittance_cookie6_2_00.txt' using 1:2 with lp lt 1 pt 7 ps 0.2 lw 1 title 'angle = 0 deg', \
+     '../dc762/ANGLE_transmittance_cookie6_2_05.txt' using 1:2 with lp lt 2 pt 7 ps 0.2 lw 1 title 'angle = 5 deg', \
+     '../dc762/ANGLE_transmittance_cookie6_2_10.txt' using 1:2 with lp lt 3 pt 7 ps 0.2 lw 1 title 'angle = 10 deg', \
+     '../dc762/ANGLE_transmittance_cookie6_2_20.txt' using 1:2 with lp lt 4 pt 7 ps 0.2 lw 1 title 'angle = 20 deg', \
+     '../dc762/ANGLE_transmittance_cookie6_2_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
+     '../dc762/ANGLE_transmittance_cookie6_2_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
+     'cookie6_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookie6 from Saturday'
+unset title
+unset output
+
+set output 'cookie7_angle.pdf'
+set title 'Angle dependence for cookie: TSE 100:2.5 100C 2 mm'
+set grid
+plot '../dc762/ANGLE_transmittance_cookie7_2_00.txt' using 1:2 with lp lt 1 pt 7 ps 0.2 lw 1 title 'angle = 0 deg', \
+     '../dc762/ANGLE_transmittance_cookie7_2_05.txt' using 1:2 with lp lt 2 pt 7 ps 0.2 lw 1 title 'angle = 5 deg', \
+     '../dc762/ANGLE_transmittance_cookie7_2_10.txt' using 1:2 with lp lt 3 pt 7 ps 0.2 lw 1 title 'angle = 10 deg', \
+     '../dc762/ANGLE_transmittance_cookie7_2_20.txt' using 1:2 with lp lt 4 pt 7 ps 0.2 lw 1 title 'angle = 20 deg', \
+     '../dc762/ANGLE_transmittance_cookie7_2_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
+     '../dc762/ANGLE_transmittance_cookie7_2_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
+     'cookie7_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookie7 from Saturday'
+unset title
+unset output
+
+set output 'cookie10_angle.pdf'
+set title 'Angle dependence for cookie: RTV 100:3.2 100C 2 mm'
+set grid
+plot '../dc762/ANGLE_transmittance_cookie10_2_00.txt' using 1:2 with lp lt 1 pt 7 ps 0.2 lw 1 title 'angle = 0 deg', \
+     '../dc762/ANGLE_transmittance_cookie10_2_05.txt' using 1:2 with lp lt 2 pt 7 ps 0.2 lw 1 title 'angle = 5 deg', \
+     '../dc762/ANGLE_transmittance_cookie10_2_10.txt' using 1:2 with lp lt 3 pt 7 ps 0.2 lw 1 title 'angle = 10 deg', \
+     '../dc762/ANGLE_transmittance_cookie10_2_20.txt' using 1:2 with lp lt 4 pt 7 ps 0.2 lw 1 title 'angle = 20 deg', \
+     '../dc762/ANGLE_transmittance_cookie10_2_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
+     '../dc762/ANGLE_transmittance_cookie10_2_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
+     'cookie10_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookie10 from Saturday'
+unset title
+unset output
+
+set output 'cookie14_angle.pdf'
+set title 'Angle dependence for cookie: TSE 100:3.2 100C 2 mm'
+set grid
+plot '../dc762/ANGLE_transmittance_cookie14_2_00.txt' using 1:2 with lp lt 1 pt 7 ps 0.2 lw 1 title 'angle = 0 deg', \
+     '../dc762/ANGLE_transmittance_cookie14_2_05.txt' using 1:2 with lp lt 2 pt 7 ps 0.2 lw 1 title 'angle = 5 deg', \
+     '../dc762/ANGLE_transmittance_cookie14_2_10.txt' using 1:2 with lp lt 3 pt 7 ps 0.2 lw 1 title 'angle = 10 deg', \
+     '../dc762/ANGLE_transmittance_cookie14_2_20.txt' using 1:2 with lp lt 4 pt 7 ps 0.2 lw 1 title 'angle = 20 deg', \
+     '../dc762/ANGLE_transmittance_cookie14_2_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
+     '../dc762/ANGLE_transmittance_cookie14_2_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
+     'cookie14_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookie14 from Saturday'
+unset title
+unset output
