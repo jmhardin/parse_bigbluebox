@@ -1,3 +1,12 @@
 Intended to interpret output from the big blue box at the JLab ARC.
 Run without options for usage.
 Missing quite a few command line options and features (primarily - dark current is hard coded and not inferred could be modelled instead)
+
+Short summary of data analysis fro transmission measurements:
+
+1. Parse output files using parse_all.sh and parse_angle.sh. Based on the signal(s), reference(r), and dark(dc) currents calculate the transmission as: (s-dc)/(r-dc)
+2. Average measurements from 3 points for perpendicular incidence using Draw_OneCookie.C macro
+3. Plot transmission using macros 'plot*.mac'
+4. To plot transmission relative to a single quartz piece (q) or to a sandwich of two quartz pieces with oil inbetween (qo):
+   - join the tables for the desired sample (cookie_i) and the reference (q or qo) using command 'join [file1] [file2] > [outputfile]'
+   - plot the relative transmission using 'plot*rel*.mac'
