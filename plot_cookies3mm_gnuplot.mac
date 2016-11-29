@@ -19,7 +19,8 @@ set pointsize 0.5
 set style fill transparent solid 0.2 noborder
 
 set terminal pdf
-set output 'relative1.pdf'
+set output 'cookies3mm_2.pdf'
+set grid
 plot 'cookie3_0.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
      '' using 1:2 with lp lt 1 pt 7 ps 0.1 lw 1 title 'two quartz, oil inbetween', \
      'cookie15_3.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \

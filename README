@@ -10,3 +10,14 @@ Short summary of data analysis fro transmission measurements:
 4. To plot transmission relative to a single quartz piece (q) or to a sandwich of two quartz pieces with oil inbetween (qo):
    - join the tables for the desired sample (cookie_i) and the reference (q or qo) using command 'join [file1] [file2] > [outputfile]'
    - plot the relative transmission using 'plot*rel*.mac'
+
+
+For convenience I renamed some files:
+
+onequartz -> cookie1_0
+twoquartz_ca -> cookie1_0
+twoquartz_air -> cookie2_0
+twoquartz_oil -> cookie3_0
+cookier_1 -> cookie4_1
+cookier_2 -> cookie4_2
+cookief -> cookie11_2

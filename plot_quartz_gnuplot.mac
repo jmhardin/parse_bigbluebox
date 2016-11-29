@@ -29,7 +29,8 @@ plot '../dc762/ANGLE_transmittance_onequartz_00.txt' using 1:2 with lp lt 1 pt 7
      '../dc762/ANGLE_transmittance_onequartz_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
      '../dc762/ANGLE_transmittance_onequartz_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
      'cookie0_0.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
-     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'one quartz from Saturday'
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'one quartz from Saturday', \
+
 unset title
 unset output
 
@@ -44,7 +45,8 @@ plot '../dc762/ANGLE_transmittance_cookier_2_00.txt' using 1:2 with lp lt 1 pt 7
      '../dc762/ANGLE_transmittance_cookier_2_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
      '../dc762/ANGLE_transmittance_cookier_2_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
      'cookie4_2.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
-     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookier from Saturday'
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookier from Saturday', \
+      'EJ560.txt' using 1:2 with  lp lt 8 pt 7 ps 0.2 lw 1 title 'from data sheet'
 unset title
 unset output
 
@@ -58,7 +60,8 @@ plot '../dc762/ANGLE_transmittance_cookief_00.txt' using 1:2 with lp lt 1 pt 7 p
      '../dc762/ANGLE_transmittance_cookief_30.txt' using 1:2 with lp lt 5 pt 7 ps 0.2 lw 1 title 'angle = 30 deg', \
      '../dc762/ANGLE_transmittance_cookief_45.txt' using 1:2 with lp lt 6 pt 7 ps 0.2 lw 1 title 'angle = 45 deg', \
      'cookie11.txt' using 1:($2-$3):($2+$3) with filledcurves notitle, \
-     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookief from Saturday'
+     '' using 1:2 with lp lt 7 pt 7 ps 0.2 lw 1 title 'cookief from Saturday', \
+     'EJ560.txt' using 1:2 with  lp lt 8 pt 7 ps 0.2 lw 1 title 'from data sheet'
 unset title
 unset output
 
