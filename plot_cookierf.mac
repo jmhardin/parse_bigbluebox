@@ -1,0 +1,34 @@
+
+load "gnuplot_style.mac"
+
+set xlabel "Wavelength [nm]"
+set ylabel "Transmittance"
+
+set xrange [300:649]
+set yrange [0.65:0.95]
+
+globallw='2'
+
+set key on
+set key b #c 
+set key r 
+set title 'Premade cookies'
+
+set pointsize 0.5
+
+set style fill transparent solid 0.2 noborder
+
+set terminal pdf
+set output 'cookierf.pdf'
+set grid
+plot 'cookie11.txt' using 1:($2-$3):($2+$3) with filledcurves lt 2 notitle, \
+     '' using 1:2 with lp lt 2 pt 7 ps 0.25 lw 1 title 'Eljen, FCAL cookie', \
+     'cookie3_0.txt' using 1:($2-$3):($2+$3) with filledcurves lt 1 notitle, \
+     '' using 1:2 with lp lt 1 pt 7 ps 0.25 lw 1 title 'two quartz, oil inbetween', \
+     'cookie4_1.txt' using 1:($2-$3):($2+$3) with filledcurves lt 3 notitle, \
+     '' using 1:2 with lp lt 3 pt 7 ps 0.25 lw 1 title 'Eljen round new, 1 mm', \
+     'cookie4_2.txt' using 1:($2-$3):($2+$3) with filledcurves lt 4 notitle, \
+     '' using 1:2 with lp lt 4 pt 7 ps 0.25 lw 1 title 'Eljen round new, 2 mm'
+
+unset output
+

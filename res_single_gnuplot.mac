@@ -1,11 +1,11 @@
 
 load "gnuplot_style.mac"
 
-set xlabel "Wavelength (nm)"
-set ylabel "Reflectance"
+set xlabel "Wavelength [nm]"
+set ylabel "Transmittance"
 
-set xrange [300:600]
-set yrange [0:1.1]
+set xrange [300:649]
+set yrange [0.75:0.95]
 
 pref='ofolder'
 globallw='2'
@@ -16,6 +16,34 @@ set key r
 
 set terminal pdf
 set output 'single_transmittance.pdf'
-plot pref.'input_transmittance.csv' u 1:2 title '1' with lines lw globallw
+plot 'transmittance_onequartz_10a.txt' u 1:2 title 'single x=10' with lines lw globallw,\
+#	'transmittance_onequartz_20a.txt' u 1:2 title 'single x=20' with lines lw globallw,\
+#	'transmittance_onequartz_30a.txt' u 1:2 title 'single x=30' with lines lw globallw,\
+#	'transmittance_twoquartz_oil_10a.txt' u 1:2 title 'two quartz oil 10' with lines lw globallw,\
+#	'transmittance_twoquartz_oil_20a.txt' u 1:2 title 'two quartz oil 20' with lines lw globallw,\
+#	'transmittance_twoquartz_oil_30a.txt' u 1:2 title 'two quartz oil 30' with lines lw globallw,\
+#	'transmittance_twoquartz_air_10.txt' u 1:2 title 'two quartz air 10' with lines lw globallw,\
+#        'transmittance_twoquartz_air_20.txt' u 1:2 title 'two quartz air 20' with lines lw globallw,\
+#        'transmittance_twoquartz_air_30.txt' u 1:2 title 'two quartz air 30' with lines lw globallw,\
+#	'transmittance_twoquartz_ca_10a.txt' u 1:2 title 'two quartz ca 10' with lines lw globallw,\
+#        'transmittance_twoquartz_ca_20a.txt' u 1:2 title 'two quartz ca 20' with lines lw globallw,\
+#        'transmittance_twoquartz_ca_30a.txt' u 1:2 title 'two quartz ca 30' with lines lw globallw,\
+	'transmittance_cookie5_0.txt' u 1:2 title 'cookie5 thickness 1mm, x=0' with lines lw globallw,\
+        'transmittance_cookie6_1_0.txt' u 1:2 title 'cookie6 thickness 1mm, x=0' with lines lw globallw,\
+        'transmittance_cookie6_2_2.txt' u 1:2 title 'cookie6 thickness 2mm, x=20' with lines lw globallw,\
+	'transmittance_cookie7_1_00.txt' u 1:2 title 'cookie7 thickness 1mm, x=0' with lines lw globallw,\
+	'transmittance_cookie7_2_00a.txt' u 1:2 title 'cookie7 thickness 2mm, x=0' with lines lw globallw,\
+	'transmittance_cookie8_1_1.txt' u 1:2 title 'cookie8 thickness 1mm, x=10' with lines lw globallw,\
+        'transmittance_cookie8_2_1.txt' u 1:2 title 'cookie8 thickness 2mm, x=10' with lines lw globallw,\
+	'transmittance_cookie9_1_1.txt' u 1:2 title 'cookie9 thickness 1mm, x=10' with lines lw globallw,\
+        'transmittance_cookie9_2_1.txt' u 1:2 title 'cookie9 thickness 2mm, x=10' with lines lw globallw,\
+	'transmittance_cookie10_1_1.txt' u 1:2 title 'cookie10 thickness 1mm, x=10' with lines lw globallw,\
+        'transmittance_cookie10_2_1.txt' u 1:2 title 'cookie10 thickness 2mm, x=10' with lines lw globallw,\
+	'transmittance_cookie14_1_1.txt' u 1:2 title 'cookie14 thickness 1mm, x=10' with lines lw globallw,\
+	'transmittance_cookie14_2_1.txt' u 1:2 title 'cookie14 thickness 2mm, x=10' with lines lw globallw,\
+        'transmittance_cookie13_2_1.txt' u 1:2 title 'cookie13 thickness 2mm, x=10' with lines lw globallw,\
+	'transmittance_cookie15_1.txt' u 1:2 title 'cookie15 thickness 3mm, x=10' with lines lw globallw,\
+	'transmittance_cookie16_1_2.txt' u 1:2 title 'cookie16 thickness 1mm, x=20' with lines lw globallw,\
+	'transmittance_cookie16_2_1.txt' u 1:2 title 'cookie16 thickness 2mm, x=10' with lines lw globallw
 unset output
 
